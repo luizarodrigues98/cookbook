@@ -1,0 +1,20 @@
+<h1> Registro de tipo de receita</h1>
+
+<%if flash[:notice] %>
+  <div style='margin: 10px 0px'>
+    <%= flash[:notice] %>
+  </div> 
+
+<%end%>
+
+<%= form_with model: RecipeType.new do |f|%>
+  <div> 
+    <%= f.label :name, 'Nome'%>
+    <%= f.text_field :name %>
+  </div>
+  <br>
+  <div> 
+    <%= f.submit 'Salvar' %>
+  </div>
+
+<%end%>

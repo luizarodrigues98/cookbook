@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Cookbook</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <nav>
+      <ul>   
+        <li>
+          <%= link_to 'Início', root_path %>
+        </li>
+        <li>
+          <%= link_to 'Receitas', recipes_path %>
+        </li>
+
+        <li>
+          <%= link_to 'Cadastrar nova receita', new_recipe_path %>
+        </li>
+        <li>
+          <%= link_to 'Cadastrar novo tipo de receita', new_recipe_type_path %>
+        </li>
+        <li>
+          <%= link_to 'Cadastrar nova Culinária', new_cuisine_path %>
+        </li>
+      </ul>
+    </nav>
+
+    <%= yield %>
+  </body>
+</html>
