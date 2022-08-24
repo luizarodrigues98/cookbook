@@ -1,4 +1,4 @@
-class UsersDashboard::HomeController < ApplicationController
+class UsersDashboard::HomeController < UsersDashboardController
   def index
   end
 end
