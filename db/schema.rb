@@ -12,6 +12,9 @@
 
 ActiveRecord::Schema.define(version: 2022_08_24_183134) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -43,8 +46,8 @@ ActiveRecord::Schema.define(version: 2022_08_24_183134) do
     t.string "ingredients"
     t.string "cook_method"
     t.integer "cook_time"
-    t.integer "recipe_type_id", default: 0, null: false
-    t.integer "cuisine_id", default: 0, null: false
+    t.bigint "recipe_type_id", default: 0, null: false
+    t.bigint "cuisine_id", default: 0, null: false
     t.integer "status", default: 0
     t.index ["cuisine_id"], name: "index_recipes_on_cuisine_id"
     t.index ["recipe_type_id"], name: "index_recipes_on_recipe_type_id"
@@ -62,4 +65,6 @@ ActiveRecord::Schema.define(version: 2022_08_24_183134) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "recipes", "cuisines"
+  add_foreign_key "recipes", "recipe_types"
 end
