@@ -1,13 +1,16 @@
 Rails.application.routes.draw do
-  namespace :users_backoffice do
-    get 'welcome/index'
-  end
-  namespace :admins_backoffice do
-    get 'welcome/index'
-  end
   devise_for :users
   devise_for :admins
+
   root to: 'home#index'
+  
+  namespace :users_dashboard do
+    get 'home/index'
+  end
+  
+  namespace :admins_dashboard do
+    get 'home/index'
+  end
   
   resources :recipes, except: :destroy do
     member do
@@ -17,5 +20,4 @@ Rails.application.routes.draw do
   end
   resources :recipe_types, only: [:new, :create]
   resources :cuisines, only: [:new, :create]
-
 end
