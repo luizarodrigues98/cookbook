@@ -1,0 +1,2 @@
+module AdminsDashboard::AdminsHelper
+end

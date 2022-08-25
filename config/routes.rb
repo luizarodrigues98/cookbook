@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  namespace :admins_dashboard do
+    get 'admins/index'
+  end
   devise_for :users
   devise_for :admins
 
