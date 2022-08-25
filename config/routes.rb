@@ -5,11 +5,11 @@ Rails.application.routes.draw do
   root to: 'home#index'
   
   namespace :users_dashboard do
-    get '/home', to: 'home#index'
+    root to: 'home#index'
   end
   
   namespace :admins_dashboard do
-    get '/home', to: 'home#index'
+    root to: 'home#index'
   end
   
   resources :recipes, except: :destroy do

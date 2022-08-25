@@ -7,7 +7,7 @@
 
 <% if user_signed_in? %>
   <p> Usuário logado </p>
-   <p> Veja suas receitas aqui: <%= link_to 'receitas', users_dashboard_home_path %> </p>
+   <p> Veja suas receitas aqui: <%= link_to 'receitas', users_dashboard_root_path %> </p>
 <% else%>
   <p>Usuário não está logado </p>
   <p>Faça seu login aqui:  <%= link_to 'login',  new_user_session_path %> </p>
@@ -15,7 +15,7 @@
 
 <% if admin_signed_in? %>
   <p> Administrador logado </p>
-   <p> Veja suas receitas aqui: <%= link_to 'receitas',admins_dashboard_home_path %> </p>
+   <p> Veja suas receitas aqui: <%= link_to 'receitas',admins_dashboard_root_path %> </p>
 <% else%>
   <p>Administrador não está logado </p>
   <p>Faça seu login aqui:  <%= link_to 'login',  new_admin_session_path %> </p>
