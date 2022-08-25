@@ -13,7 +13,13 @@ Rails.application.config.assets.paths << Rails.root.join('node_modules')
 # folder are already added.
 
 # /app/assets
-Rails.application.config.assets.precompile += %w( admins_dashboard.js admins_dashboard.css )
+Rails.application.config.assets.precompile += %w( admins_dashboard.js admins_dashboard.css
+                                                  users_dashboard.js users_dashboard.css )
 
-# 
-Rails.application.config.assets.precompile += %w( sb-admin-2.js sb-admin-2.css )
+# lib/assets 
+Rails.application.config.assets.precompile += %w( sb-admin-2.js sb-admin-2.css 
+                                                  custom.js custom.css   )
+
+# vendor/assets 
+Rails.application.config.assets.precompile += %w( jquery-2.2.3/dist/jquery)
+                                                
