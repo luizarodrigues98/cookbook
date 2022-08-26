@@ -8,6 +8,9 @@ class AdminsDashboard::AdminsController < AdminsDashboardController
   end
 
   def update
+    if params[:admin][:password].blank? && params[:admin][:password_confirmation].blank?
+      params[:admin].extract!(:password, :password_confirmation)
+    end
     @admin = Admin.find(params[:id])
     if @admin.update(admin_params)
       redirect_to admins_dashboard_admins_path, notice: 'Administrador atualizado com sucesso!'
