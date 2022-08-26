@@ -1,1 +1,33 @@
-<%= @recipes %>
+<h1>Dashboard Administrativo</h1>
+<div class="panel panel-default">
+  <div class="panel-heading">
+    Receitas
+  </div>
+  <!-- /.panel-heading -->
+  <div class="panel-body">
+    <div class="table-responsive">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th> Nome</th>
+            <th> Tipo da Receita</th>
+            <th> Autor </th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @recipes.each do |recipe| %>
+            <tr>
+              <td> <%= recipe.id %> </td>
+              <td> <%= recipe.name %> </td>
+              <td> <%= recipe.recipe_type.name %></td>
+              <td> <%= recipe.author&.name %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+    <!-- /.table-responsive -->
+  </div>
+  <!-- /.panel-body -->
+</div>

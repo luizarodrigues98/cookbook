@@ -1,18 +1,20 @@
 Rails.application.routes.draw do
-  namespace :admins_dashboard do
-    get 'admins/index'
-  end
+
   devise_for :users
   devise_for :admins
 
   root to: 'home#index'
   
   namespace :users_dashboard do
-    root to: 'home#index'
+    root to: 'home#index'    
+
   end
   
   namespace :admins_dashboard do
-    root to: 'home#index'
+    root to: 'home#index'    
+    resources :admins
+    resources :users
+
   end
   
   resources :recipes, except: :destroy do
