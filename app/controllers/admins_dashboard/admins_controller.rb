@@ -9,7 +9,7 @@ class AdminsDashboard::AdminsController < AdminsDashboardController
 
   def update
     @admin = Admin.find(params[:id])
-    if @admin.update!(admin_params)
+    if @admin.update(admin_params)
       redirect_to admins_dashboard_admins_path, notice: 'Administrador atualizado com sucesso!'
     else
       render :edit
