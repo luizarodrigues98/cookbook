@@ -1,5 +1,5 @@
 class AdminsDashboard::HomeController < AdminsDashboardController
   def index
-    @recipes = Recipe.all
+    @recipes = Recipe.published
   end
 end
