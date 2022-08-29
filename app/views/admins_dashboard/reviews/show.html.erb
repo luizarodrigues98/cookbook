@@ -1,0 +1,40 @@
+
+<div class="panel panel-default">
+  <div class="panel-heading">
+  Receita
+  </div>
+  <!-- /.panel-heading -->
+  <div class="panel-body">
+    <div class="table-responsive">
+      <table class="table">
+        <thead>
+          <tr>
+      <th rowspan="1" colspan="1">Nome</th>
+      <th rowspan="1" colspan="1">Tipo da Receita</th>
+      <th rowspan="1" colspan="1">Culinária</th>
+      <th rowspan="1" colspan="1">Ingredientes</th>
+      <th rowspan="1" colspan="1">Modo de preparo</th>
+      <th rowspan="1" colspan="1">Tempo de preparo</th>
+      <th rowspan="1" colspan="1">Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+      <td class="sorting_1"><%= @recipe.name %></td>
+      <td><%= @recipe.recipe_type.name if @recipe.recipe_type %></td>
+      <td><%= @recipe.cuisine.name if @recipe.cuisine %></td>
+      <td><%= @recipe.ingredients %></td>
+      <td><%= @recipe.cook_method %></td>
+      <td><%= @recipe.cook_time %></td>
+      <td><%= @recipe.status %></td>
+          </tr>
+
+        </tbody>
+      </table>
+    </div>
+    <!-- /.table-responsive -->
+  </div>
+  <!-- /.panel-body -->
+</div>
+<%= link_to "Publicar", publish_admins_dashboard_review_path(@recipe)  %>
+<%= link_to "Editar", edit_admins_dashboard_review_path(@recipe) %>

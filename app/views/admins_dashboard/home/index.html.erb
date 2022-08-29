@@ -13,6 +13,12 @@
             <th> Nome</th>
             <th> Tipo da Receita</th>
             <th> Autor </th>
+            <th> Status </th>
+            <th> 
+              <%= link_to new_admins_dashboard_recipe_path, class: "btn btn-success btn-circle" do %>
+                <i class="fa fa-plus"></i>
+              <% end %>
+             </th>
           </tr>
         </thead>
         <tbody>
@@ -22,6 +28,13 @@
               <td> <%= recipe.name %> </td>
               <td> <%= recipe.recipe_type.name %></td>
               <td> <%= recipe.author&.name %></td>
+              <td> <%= recipe.status %></td>
+              <td style='width: 100px'> 
+              <%= link_to admins_dashboard_recipe_path(recipe), method: :delete, class:"btn btn-danger btn-circle",   data: {confirm: "Deseja realmente excluir essa receita?"} do %>               
+                <i class="fa fa-minus"></i>
+              <%end%>
+
+              </td>
             </tr>
           <% end %>
         </tbody>

@@ -1,0 +1,37 @@
+<%= form_with model: recipe, url: admins_dashboard_recipes_path, local: true do |f|%>
+  <%= f.label 'Nome'%>
+  <%= f.text_field :name %>
+  <br />
+  <div style='margin: 10px 0px'>
+  <%= f.label 'Tipo da Receita'%>
+  <%= f.collection_select :recipe_type_id, RecipeType.all, :id, :name %>
+  </div>
+  
+  <div style='margin: 10px 0px'>
+
+  <%= f.label 'Culinária'%>
+  <%= f.collection_select :cuisine_id, Cuisine.all, :id, :name %>
+  </div>
+  <div style='margin: 10px 0px'>
+
+  <%= f.label 'Ingredientes'%>
+  <%= f.text_area :ingredients %>
+  </div>
+  <div style='margin: 10px 0px'>
+  
+
+  <%= f.label 'Modo de preparo'%>
+  <%= f.text_field :cook_method %>
+  </div>
+  
+  <div style='margin: 10px 0px'>
+
+  <%= f.label 'Tempo de preparo'%>
+  <%= f.number_field :cook_time %>
+  </div>
+
+  <div style='margin: 10px 0px'>
+  <%= f.submit 'Salvar e publicar' %>
+  </div>
+
+<% end %>
