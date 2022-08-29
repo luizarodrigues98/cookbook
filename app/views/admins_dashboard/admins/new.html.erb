@@ -1,14 +1,14 @@
 <div class='row'>
   <div class="col-lg-12">
-    <h1 class="page-header">Editando Usuário</h1>
+    <h1 class="page-header">Adicionando Administrador</h1>
   </div>
 </div>
 <div class='row'>
-  <% if @user.errors.any?%>
+  <% if @admin.errors.any?%>
   <div class="alert alert-danger alert-dismissable">
     <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
     <ul>
-      <%@user.errors.full_messages.each do |message|%>
+      <%@admin.errors.full_messages.each do |message|%>
       <li> <%= message %> </li>
       <%end%>
     </ul>
@@ -17,23 +17,23 @@
 </div>
 <div class="panel panel-default">
   <div class="panel-heading">
-    Editando Usuário
+    Adicionando Administrador
   </div>
 
 
   <div class="panel-body">
     <div class="row">
       <div class="col-lg-6">
-        <%= form_with(model:[:admins_dashboard, @user], local: true) do |form| %>
+        <%= form_with(model:[:admins_dashboard, @admin], local: true) do |form| %>
 
         <div class="form-group">
           <%= form.label :email %>
-          <%= form.text_field :email, class: 'form-control', placeholder: "Email do Usuário"%>
+          <%= form.text_field :email, class: 'form-control', placeholder: "Email do Administrador"%>
         </div>
 
         <div class="form-group">
           <%= form.label :password %>
-          <%= form.password_field :password, class: 'form-control', placeholder: "Senha do Usuário"%>
+          <%= form.password_field :password, class: 'form-control', placeholder: "Senha do Administrador"%>
         </div>
         <div class="form-group">
           <%= form.label :password_confirmation %>
