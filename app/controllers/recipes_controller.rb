@@ -14,7 +14,7 @@ class RecipesController < ApplicationController
   def create
     @recipe = Recipe.new(recipe_params)
     if @recipe.save
-      @recipe.published! if params[:commit] == 'Salvar e publicar'
+      @recipe.in_review! if params[:commit] == 'Salvar e publicar'
       redirect_to recipe_path(@recipe.id)
     else
       render :new

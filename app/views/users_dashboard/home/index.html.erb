@@ -1,4 +1,31 @@
+<h1>Dashboard</h1>
+<div class="panel panel-default">
 
-<p>
-<%= link_to "Fazer logoff(usuário)", destroy_user_session_path, method: :delete %>
-</p>
+  <!-- /.panel-heading -->
+  <div class="panel-body">
+    <div class="table-responsive">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th> Nome</th>
+            <th> Tipo da Receita</th>
+            <th> Autor </th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @recipes.each do |recipe| %>
+          <tr>
+            <td> <%= recipe.name %> </td>
+            <td> <%= recipe.recipe_type.name %></td>
+            <td> <%= recipe.author.email %></td>
+
+          </tr>
+          <% end %>
+
+        </tbody>
+      </table>
+    </div>
+    <!-- /.table-responsive -->
+  </div>
+  <!-- /.panel-body -->
+</div>

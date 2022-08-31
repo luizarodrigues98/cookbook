@@ -1,7 +1,6 @@
-
 <div class="panel panel-default">
   <div class="panel-heading">
-  Receita
+    Receita
   </div>
   <!-- /.panel-heading -->
   <div class="panel-body">
@@ -9,27 +8,35 @@
       <table class="table">
         <thead>
           <tr>
-      <th rowspan="1" colspan="1">Nome</th>
-      <th rowspan="1" colspan="1">Tipo da Receita</th>
-      <th rowspan="1" colspan="1">Culinária</th>
-      <th rowspan="1" colspan="1">Ingredientes</th>
-      <th rowspan="1" colspan="1">Modo de preparo</th>
-      <th rowspan="1" colspan="1">Tempo de preparo</th>
-      <th rowspan="1" colspan="1">Status</th>
+            <th>Nome</th>
+            <td><%= @recipe.name %></td>
           </tr>
-        </thead>
-        <tbody>
           <tr>
-      <td class="sorting_1"><%= @recipe.name %></td>
-      <td><%= @recipe.recipe_type.name if @recipe.recipe_type %></td>
-      <td><%= @recipe.cuisine.name if @recipe.cuisine %></td>
-      <td><%= @recipe.ingredients %></td>
-      <td><%= @recipe.cook_method %></td>
-      <td><%= @recipe.cook_time %></td>
-      <td><%= @recipe.status %></td>
+            <th>Tipo de Receita</th>
+            <td><%= @recipe.recipe_type.name %></td>
+          </tr>
+          <tr>
+            <th>Culinária</th>
+            <td><%= @recipe.cuisine.name if @recipe.cuisine %></td>
+          </tr>
+          <tr>
+            <th>Ingredientes</th>
+            <td><%= @recipe.ingredients %></td>
+          </tr>
+          <tr>
+            <th>Modo de preparo</th>
+            <td><%= @recipe.cook_method %></td>
+          </tr>
+          <tr>
+            <th>Tempo de preparo</th>
+            <td><%= @recipe.cook_time %></td>
+          </tr>
+          <tr>
+            <th>Status</th>
+            <td><%= @recipe.status %></td>
           </tr>
 
-        </tbody>
+        </thead>
       </table>
     </div>
     <!-- /.table-responsive -->

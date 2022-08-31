@@ -6,7 +6,8 @@ Rails.application.routes.draw do
   root to: 'home#index'
   
   namespace :users_dashboard do
-    root to: 'home#index'    
+    root to: 'home#index'
+    resources :recipes    
 
   end
   
@@ -14,6 +15,12 @@ Rails.application.routes.draw do
     root to: 'home#index'    
     resources :admins
     resources :users
+    resources :reviews, except: [:new, :create] do
+      member do
+        get :publish
+      end
+    end
+    resources :recipes, only: [:new, :create, :destroy]
 
   end
   

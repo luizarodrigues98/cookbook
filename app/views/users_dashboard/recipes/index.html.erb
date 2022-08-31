@@ -1,0 +1,112 @@
+<div class="page-title">
+  <div class="title_left">
+    <h3>Receitas </h3>
+  </div>
+
+  <!-- div class="title_right">
+    <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
+      <div class="input-group">
+        <input type="text" class="form-control" placeholder="Search for...">
+        <span class="input-group-btn">
+          <button class="btn btn-default" type="button">Go!</button>
+        </span>
+      </div>
+    </div>
+  </div -->
+</div>
+<div class="clearfix"></div>
+<div class="row">
+  <div class="col-md-6 col-sm-6 col-xs-12">
+    <div class="x_panel">
+      <div class="x_title">
+        <h2>Receitas em Rascunho </h2>
+        <div class="clearfix"></div>
+      </div>
+      <!-- /.panel-heading -->
+      <div class="x_content" style="display: block;">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>Nome</th>
+              <th>Tipo de Receita</th>
+              <th>Culinária</th>
+              <th>Ingredientes</th>
+              <th>Modo de preparo</th>
+              <th>Tempo de preparo</th>
+              <th>Status</th>
+              <th></th> 
+            </tr>
+          </thead>
+        
+          <tbody>
+            <% @draft_recipes.each do |recipe| %> 
+              <tr>
+                <td><%= recipe.name %></td>
+                <td><%= recipe.recipe_type.name %></td>
+                <td><%= recipe.cuisine.name if recipe.cuisine %></td>
+                <td><%= recipe.ingredients %></td>
+                <td><%= recipe.cook_method %></td>
+                <td><%= recipe.cook_time %></td>
+                <td><%= recipe.status %></td>
+                <td>
+                  <%= link_to  new_users_dashboard_recipe_path(recipe), class:"btn btn-success btn-circle" do %>
+                    <i class= "fa fa-plus"></i>
+                  <% end %>
+                </td>
+              </tr>
+            <%end%>
+          </tbody>
+        </table>
+        <!-- /.table-responsive -->
+      </div>
+      <!-- /.panel-body -->
+    </div>
+  </div>
+  <div class="col-md-6 col-sm-6 col-xs-12">
+    <div class="x_panel">
+      <div class="x_title">
+        <h2>Receitas Publicadas </h2>
+        <div class="clearfix"></div>
+      </div>
+      <!-- /.panel-heading -->
+      <div class="x_content" style="display: block;">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>Nome</th>
+              <th>Tipo de Receita</th>
+              <th>Culinária</th>
+              <th>Ingredientes</th>
+              <th>Modo de preparo</th>
+              <th>Tempo de preparo</th>
+              <th>Status</th>
+              <th></th> 
+            </tr>
+          </thead>
+        
+          <tbody>
+            <% @published_recipes.each do |recipe| %> 
+              <tr>
+                <td><%= recipe.name %></td>
+                <td><%= recipe.recipe_type.name %></td>
+                <td><%= recipe.cuisine.name if recipe.cuisine %></td>
+                <td><%= recipe.ingredients %></td>
+                <td><%= recipe.cook_method %></td>
+                <td><%= recipe.cook_time %></td>
+                <td><%= recipe.status %></td>
+                <td>
+                  <%= link_to  new_users_dashboard_recipe_path(recipe), class:"btn btn-success btn-circle" do %>
+                    <i class= "fa fa-plus"></i>
+                  <% end %>
+                </td>
+              </tr>
+            <%end%>
+          </tbody>
+        </table>
+        <!-- /.table-responsive -->
+      </div>
+      <!-- /.panel-body -->
+    </div>
+  </div>  
+</div>
+
