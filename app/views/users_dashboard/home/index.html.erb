@@ -17,7 +17,7 @@
           <tr>
             <td> <%= recipe.name %> </td>
             <td> <%= recipe.recipe_type.name %></td>
-            <td> <%= recipe.author.email %></td>
+            <td> <%= recipe.author&.email %></td>
 
           </tr>
           <% end %>

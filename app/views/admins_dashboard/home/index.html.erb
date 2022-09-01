@@ -27,7 +27,7 @@
               <td> <%= recipe.id %> </td>
               <td> <%= recipe.name %> </td>
               <td> <%= recipe.recipe_type.name %></td>
-              <td> <%= recipe.author.email %></td>
+              <td> <%= recipe.author&.email %></td>
               <td> <%= recipe.status %></td>
               <td style='width: 100px'> 
               <%= link_to admins_dashboard_recipe_path(recipe), method: :delete, class:"btn btn-danger btn-circle",   data: {confirm: "Deseja realmente excluir essa receita?"} do %>               

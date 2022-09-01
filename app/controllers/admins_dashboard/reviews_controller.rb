@@ -10,6 +10,8 @@ class AdminsDashboard::ReviewsController < AdminsDashboardController
   
     def edit
       @recipe = Recipe.find(params[:id])
+      @recipe_types = RecipeType.all
+      @cuisines = Cuisine.all
     end
   
     def update
@@ -24,7 +26,7 @@ class AdminsDashboard::ReviewsController < AdminsDashboardController
     end
 
     def destroy 
-      @recipe = Recipe(params[:id])
+      @recipe = Recipe.find(params[:id])
       if @recipe.destroy
         redirect_to admins_dashboard_reviews_path, notice: "Receita excluida com sucesso!"
       else

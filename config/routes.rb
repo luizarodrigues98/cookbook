@@ -14,7 +14,9 @@ Rails.application.routes.draw do
   namespace :admins_dashboard do
     root to: 'home#index'    
     resources :admins
-    resources :users
+    resources :users    
+    resources :recipe_types
+    resources :cuisines
     resources :reviews, except: [:new, :create] do
       member do
         get :publish

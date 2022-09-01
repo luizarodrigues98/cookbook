@@ -101,6 +101,25 @@
 							</li>
 
 						</ul>			
+						<ul class="nav" id="side-menu">
+			        <li>
+          			<%= link_to admins_dashboard_recipe_types_path	 do%>
+									<i class="fa fa-folder-o fa-fw"></i> Tipos de receitas
+								<%end%>
+        			</li>
+        
+						</ul>
+						<ul class="nav" id="side-menu">
+			        <li>
+          			<%= link_to admins_dashboard_cuisines_path do%>
+									<i class="fa fa-folder-o fa-fw"></i> Culinárias
+								<%end%>
+        			</li>
+        
+						</ul>
+
+
+
 					</div>
 					<!-- /.sidebar-collapse -->
 				</div>
@@ -111,7 +130,9 @@
 			<div id="page-wrapper">
 				<div class="container-fluid">
 					
-					<div class='row'>				
+					<%
+=begin%>
+ <div class='row'>				
 						<% flash.each do |type, msg| %>
 							<div class="alert alert-<%= type == 'notice' ? 'success' : 'danger' %> alert-dismissable">
 								<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
@@ -120,7 +141,9 @@
 								</ul>
 							</div>
 						<%end%>
-					</div>
+					</div> 
+<%
+=end%>
 					<div class="row">
 						<div class="col-lg-12">
 							<%= yield%>
