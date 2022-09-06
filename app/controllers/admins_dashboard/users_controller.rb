@@ -2,7 +2,7 @@ class AdminsDashboard::UsersController < AdminsDashboardController
   before_action :set_user, except: :index
   
   def index
-    @users = User.all.order(:id)
+    @users = User.all.order(:id).page(params[:page]).per(5)
     
   end
   def edit

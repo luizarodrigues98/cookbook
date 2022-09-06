@@ -2,7 +2,7 @@ class AdminsDashboard::AdminsController < AdminsDashboardController
   before_action :set_admin, only: [:edit, :update, :destroy]
   before_action :verify_password, only: :update
   def index
-    @admins = Admin.all.page(params[:page]).per(5)
+    @admins = Admin.all.order(:id).page(params[:page]).per(5)
   end
 
   def new
