@@ -1,24 +1,4 @@
-<h1> Informações sobre a receita: <%= @recipe.name %> </h1>
- <%= link_to "Editar", edit_recipe_path %>
 
-  <dl> 
-    <dt>
-    <strong>Nome: </strong><%= @recipe.name %> 
-    </dt>
-    <dd>
-    <strong>Tipo da Receita: </strong><%= @recipe.recipe_type.name if @recipe.recipe_type %> </dd>
-    <dd>
-    <strong>Culinária: </strong><%= @recipe.cuisine.name if @recipe.cuisine %> </dd>
-    <dd>
-    <strong>Ingredientes: </strong><%= @recipe.ingredients %> </dd>
-    <dd>
-    <strong>Modo de preparo: </strong><%= @recipe.cook_method %> </dd>
-    <dd>
-    <strong>Tempo de preparo: </strong><%= @recipe.cook_time %> </dd>
-    <dd>
-    <strong>Status: </strong><%= @recipe.status %> </dd>
-    
-  </dl>
-
-<%= button_to "Publicar", publish_recipe_path, {method: 'patch'} if @recipe.draft? %>
-<%= button_to "Rascunho", draft_recipe_path, {method: 'patch'} if @recipe.published? %>
+<%= render 'form', recipe: @recipe, url: '' %>
+   
+<%= link_to "Publicar", publish_users_dashboard_recipe_path(@recipe), class: "btn btn-primary" if @recipe.draft? %>

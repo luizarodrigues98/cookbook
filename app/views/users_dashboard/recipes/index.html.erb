@@ -16,7 +16,7 @@
 </div>
 <div class="clearfix"></div>
 <div class="row">
-  <div class="col-md-6 col-sm-6 col-xs-12">
+  <div class="col-md-12 col-sm-12 col-xs-12">
     <div class="x_panel">
       <div class="x_title">
         <h2>Receitas em Rascunho </h2>
@@ -49,10 +49,18 @@
                 <td><%= recipe.cook_time %></td>
                 <td><%= recipe.status %></td>
                 <td>
-                  <%= link_to  new_users_dashboard_recipe_path(recipe), class:"btn btn-success btn-circle" do %>
-                    <i class= "fa fa-plus"></i>
+                  <%= link_to publish_users_dashboard_recipe_path(recipe), class: "btn btn-warning btn-circle" do %>
+                    <i class="fa fa-check"></i>
                   <% end %>
-                </td>
+                <td>
+                  <%= link_to edit_users_dashboard_recipe_path(recipe), class: "btn btn-primary btn-circle" do %>
+                    <i class="fa fa-edit"></i>
+                  <% end %>
+                </td>                  
+                <td>
+              <%= link_to users_dashboard_recipe_path(recipe), method: :delete, class:"btn btn-danger btn-circle",   data: {confirm: "Deseja realmente excluir essa receita?"} do %>               
+                <i class="fa fa-minus"></i>
+              <%end%>
               </tr>
             <%end%>
           </tbody>
@@ -62,7 +70,7 @@
       <!-- /.panel-body -->
     </div>
   </div>
-  <div class="col-md-6 col-sm-6 col-xs-12">
+  <div class="col-md-12 col-sm-12 col-xs-12">
     <div class="x_panel">
       <div class="x_title">
         <h2>Receitas Publicadas </h2>
@@ -95,9 +103,6 @@
                 <td><%= recipe.cook_time %></td>
                 <td><%= recipe.status %></td>
                 <td>
-                  <%= link_to  new_users_dashboard_recipe_path(recipe), class:"btn btn-success btn-circle" do %>
-                    <i class= "fa fa-plus"></i>
-                  <% end %>
                 </td>
               </tr>
             <%end%>

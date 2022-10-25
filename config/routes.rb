@@ -7,7 +7,11 @@ Rails.application.routes.draw do
   
   namespace :users_dashboard do
     root to: 'home#index'
-    resources :recipes    
+    resources :recipes do
+      member do
+        get :publish
+      end
+    end   
 
   end
   

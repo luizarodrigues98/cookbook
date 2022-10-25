@@ -10,6 +10,9 @@
             <th> Nome</th>
             <th> Tipo da Receita</th>
             <th> Autor </th>
+            <th>
+              
+            </th>
           </tr>
         </thead>
         <tbody>
@@ -18,7 +21,11 @@
             <td> <%= recipe.name %> </td>
             <td> <%= recipe.recipe_type.name %></td>
             <td> <%= recipe.author&.email %></td>
-
+            <td>
+              <%= link_to users_dashboard_recipe_path(recipe), class: "btn btn-success btn-circle" do %>
+                <i class="fa fa-search"></i>
+              <% end %>
+            </td>
           </tr>
           <% end %>
 

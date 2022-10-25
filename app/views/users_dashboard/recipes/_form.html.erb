@@ -1,39 +1,63 @@
-<%= form_with model: recipe do |f|%>
-  <%= f.label 'Nome'%>
-  <%= f.text_field :name %>
-  <br />
-  <div style='margin: 10px 0px'>
-  <%= f.label 'Tipo da Receita'%>
-  <%= f.collection_select :recipe_type_id, RecipeType.all, :id, :name %>
+<% disabled = params[:action] == 'show' %>
+
+<div class="col-md-12 col-sm-12 col-xs-12">
+  <div class="x_panel">
+    <div class="x_title">
+      <h2> Receita</h2>
+      
+      <div class="clearfix"></div>
+    </div>
+    <div class="x_content">
+      <br>
+      <%= form_with model: recipe, url: url, local: true, class: "form-horizontal form-label-left" do |f|%>
+        <%= f.text_field :user_id, value: current_user.id, type: :hidden %>
+        
+        <div class="form-group">
+          <%= f.label :name, "Nome", class: "control-label col-md-3 col-sm-3 col-xs-12" %>
+          <div class="col-md-6 col-sm-6 col-xs-12">
+            <%= f.text_field :name, class: "form-control col-md-7 col-xs-12", disabled: disabled %>
+          </div>
+        </div>
+        <div class="form-group">
+          <%= f.label :recipe_type_id, "Tipo da receita", class: "control-label col-md-3 col-sm-3 col-xs-12" %>
+          <div class="col-md-6 col-sm-6 col-xs-12">
+            <%= f.collection_select :recipe_type_id, @recipe_types, :id, :name, {}, { class: "form-control col-md-7 col-xs-12", disabled: disabled } %>
+          </div>
+        </div>        
+        <div class="form-group">
+          <%= f.label :cuisine_id, "Culinária", class: "control-label col-md-3 col-sm-3 col-xs-12" %>
+          <div class="col-md-6 col-sm-6 col-xs-12">
+            <%= f.collection_select :cuisine_id, @cuisines, :id, :name, {}, { class: "form-control col-md-7 col-xs-12", disabled: disabled } %>
+          </div>
+        </div> 
+        <div class="form-group">
+          <%= f.label :ingredients, "Ingredientes", class: "control-label col-md-3 col-sm-3 col-xs-12" %>
+          <div class="col-md-6 col-sm-6 col-xs-12">
+            <%= f.text_area :ingredients, class: "form-control col-md-7 col-xs-12", disabled: disabled %>
+          </div>
+        </div>
+        <div class="form-group">
+          <%= f.label :cook_method, "Modo de preparo", class: "control-label col-md-3 col-sm-3 col-xs-12" %>
+          <div class="col-md-6 col-sm-6 col-xs-12">
+            <%= f.text_area :cook_method, class: "form-control col-md-7 col-xs-12", disabled: disabled %>
+          </div>
+        </div>
+        <div class="form-group">
+          <%= f.label :cook_time, "Tempo de preparo", class: "control-label col-md-3 col-sm-3 col-xs-12" %>
+          <div class="col-md-6 col-sm-6 col-xs-12">
+            <%= f.number_field :cook_time, class: "form-control col-md-7 col-xs-12", disabled: disabled %>
+          </div>
+        </div>
+        <% unless disabled %>
+          <div class="ln_solid"></div>
+          <div class="form-group">
+            <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+              <%= f.submit 'Salvar', class:"btn btn-primary" %>
+              <%= f.submit 'Salvar e publicar', class:"btn btn-success"  %>
+            </div>
+          </div>
+        <%end%>
+      <%end%>
+    </div>
   </div>
-  
-  <div style='margin: 10px 0px'>
-
-  <%= f.label 'Culinária'%>
-  <%= f.collection_select :cuisine_id, Cuisine.all, :id, :name %>
-  </div>
-  <div style='margin: 10px 0px'>
-
-  <%= f.label 'Ingredientes'%>
-  <%= f.text_area :ingredients %>
-  </div>
-  <div style='margin: 10px 0px'>
-  
-
-  <%= f.label 'Modo de preparo'%>
-  <%= f.text_field :cook_method %>
-  </div>
-  
-  <div style='margin: 10px 0px'>
-
-  <%= f.label 'Tempo de preparo'%>
-  <%= f.number_field :cook_time %>
-  </div>
-
-  <div style='margin: 10px 0px'>
-  <%= f.submit 'Salvar' %>
-  <%= f.submit 'Salvar e publicar' %>
-  </div>
-
-<% end %>
-
+</div>
