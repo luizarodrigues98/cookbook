@@ -2,35 +2,24 @@
 <html>
   <head>
     <title>Cookbook</title>
+    <meta>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag    'application' %>
-    <%= javascript_include_tag 'application' %>
+    <%= javascript_include_tag "application"%>
   </head>
 
   <body>
-    <nav>
-      <ul>   
-        <li>
-          <%= link_to 'Início', root_path %>
-        </li>
-        <li>
-          <%= link_to 'Receitas', recipes_path %>
-        </li>
+    <main>  
+      <% if notice %>
+        <p class="alert alert-success"> <%= notice %> </p>
+      <% end %>
+      <% if alert %>
+        <p class="alert alert-danger"> <%= alert %> </p>
+      <% end %>
+      <%= yield %>
+    </main>
 
-        <li>
-          <%= link_to 'Cadastrar nova receita', new_recipe_path %>
-        </li>
-        <li>
-          <%= link_to 'Cadastrar novo tipo de receita', new_recipe_type_path %>
-        </li>
-        <li>
-          <%= link_to 'Cadastrar nova Culinária', new_cuisine_path %>
-        </li>
-      </ul>
-    </nav>
-
-    <%= yield %>
   </body>
 </html>

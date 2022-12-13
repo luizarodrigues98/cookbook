@@ -1,22 +1,16 @@
-<h1> Livro de Receitas </h1>
+<div class="row">
+  <h1> Livro de Receitas </h1>
+  <div class="text-center">
+    <% @recipes.each do |recipe| %> 
+      <%= link_to recipe.name, recipe_path(recipe.id)%>
+      <br />
+    <% end %>
 
-<% @recipes.each do |recipe| %> 
-  <%= link_to recipe.name, recipe_path(recipe.id)%>
-  <br />
-<% end %>
-
-<% if user_signed_in? %>
-  <p> Usuário logado </p>
-   <p> Veja suas receitas aqui: <%= link_to 'receitas', users_dashboard_root_path %> </p>
-<% else%>
-  <p>Usuário não está logado </p>
-  <p>Faça seu login aqui:  <%= link_to 'login',  new_user_session_path %> </p>
-<% end %>
-
-<% if admin_signed_in? %>
-  <p> Administrador logado </p>
-   <p> Veja suas receitas aqui: <%= link_to 'receitas',admins_dashboard_root_path %> </p>
-<% else%>
-  <p>Administrador não está logado </p>
-  <p>Faça seu login aqui:  <%= link_to 'login',  new_admin_session_path %> </p>
-<% end %>
+    <% if user_signed_in? %>
+      <p> Veja suas receitas aqui: <%= link_to 'receitas', users_dashboard_root_path %> </p>
+    <% else%>
+      <p>Usuário não está logado </p>
+      <p>Faça seu login aqui:  <%= link_to 'login',  new_user_session_path %> </p>
+    <% end %>
+  </div>
+</div>
