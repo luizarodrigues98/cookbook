@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Cookbook</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application' %>
+    <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
+  </head>
+
+  <body>
+    <header class="p-3 mb-3 border-bottom" id="header">
+      <div class="container">
+        <div class="d-flex flex-wrap align-items-center justify-content-lg-start">
+          <%= link_to 'Cookbook', root_path %>
+        </div>
+      </div>
+    </header>
+      <%= yield %>
+
+  </body>
+</html>
